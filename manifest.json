@@ -1,0 +1,61 @@
+{
+    "name": "Mongo Express",
+    "id": "mongo-express",
+    "packaging_format": 1,
+    "description": {
+        "en": "Mongo-express and a specific mongo database",
+        "fr": "Mongo database together with Mongo-express server "
+    },
+    "version": "1.0~ynh1",
+    "url": "https://github.com/mongo-express/mongo-express",
+    "upstream": {
+        "license": "free",
+        "website": "https://github.com/mongo-express/mongo-express",
+        "code": "https://github.com/mongo-express/mongo-express"
+    },
+    "license": "MIT",
+    "maintainer": {
+        "name": "Gerard Collin",
+        "email": "ger@collin.best"
+    },
+    "requirements": {
+        "yunohost": ">= 11.0.0"
+    },
+    "multi_instance": false,
+    "services": [
+        "nginx"
+    ],
+    "arguments": {
+        "install": [
+            {
+                "name": "domain",
+                "type": "domain"
+            },
+            {
+                "name": "path",
+                "type": "path",
+                "example": "/mongo",
+                "default": "/mongo"
+            },
+            {
+                "name": "is_public",
+                "type": "boolean",
+                "default": false,
+                "ask": {
+                    "en": "Mongo Express enables you admin access to your mongo server, you shouldn't allow anyone to access it",
+                    "fr": "Il n'est vraiment pas recommandé de donner l'accès a tout le monde, car Mongo-Express vous donne un accès admin à votre serveur Mongo"
+                }
+            },
+            {
+                "name": "mongo_version",
+                "type": "string",
+                "choices": ["None","4.4", "5.0", "6.0"],
+                "default": "6.0",
+                "ask": {
+                    "en": "Select the major version of Mongo to install or 'None' if already installed",
+                    "fr": "Choisissez la version de Mongo a installer ou 'None' si Mongo est déjà installé"
+                }
+            }
+        ]
+    }
+}
