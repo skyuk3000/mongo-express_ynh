@@ -1,12 +1,9 @@
-* Any known limitations, constrains or stuff not working, such as (but not limited to):
-    * requiring a full dedicated domain ?
-    * architectures not supported ?
-    * not-working single-sign on or LDAP integration ?
-    * the app requires an important amount of RAM / disk / .. to install or to work properly
-    * etc...
+* For now, any user that can log to your server will have admin access to all your Mongo databases !
+    * Single-sign on or LDAP are not integrated
+    * It's strongly recommanded you don't enable public access to the application
 
-* Other infos that people should be aware of, such as:
-    * any specific step to perform after installing (such as manually finishing the install, specific admin credentials, ...)
-    * how to configure / administrate the application if it ain't obvious
-    * upgrade process / specificities / things to be aware of ?
-    * security considerations ?
+* It doesn't backup Mongo databases
+    * As mongo-express doesn't require any database by itself, it doesn't backup or restore any of them
+    * However, yYou can view / edit other applications databases with Mongo-Express
+    * It will just reinstall the Mongo server if you installed it with this script 
+    * Any yunohost applications using Mongo databases should manage the backup and restore
