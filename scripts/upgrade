@@ -82,7 +82,7 @@ ynh_systemd_action --service_name=$app --action="stop" --log_path="/var/log/$app
 #=================================================
 # INSTALL DEPENDENCIES
 #=================================================
-ynh_script_progression --message="Installing dependencies..." --weight=1
+ynh_script_progression --message="Installing dependencies..." --weight=3
 
 ### `ynh_install_app_dependencies` allows you to add any "apt" dependencies to the package.
 ### Those deb packages will be installed as dependencies of this package.
@@ -99,6 +99,9 @@ ynh_use_nodejs
 if [ $mongo_version != 'None' ]
 then
   ynh_install_mongo --mongo_version=$mongo_version
+else
+  # gives the mongo service name for the rest of installation
+  mongodb_servicename=mongod
 fi
 
 #=================================================
@@ -115,7 +118,7 @@ ynh_system_user_create --username=$app --home_dir="$final_path"
 
 if [ "$upgrade_type" == "UPGRADE_APP" ]
 then
-	ynh_script_progression --message="Upgrading source files..." --weight=1
+	ynh_script_progression --message="Upgrading source files..." --weight=6
 
 	# Download, check integrity, uncompress and patch the source from amd64.src
   ynh_setup_source --source_id=amd64 --dest_dir="$final_path"
@@ -140,7 +143,7 @@ ynh_exec_as $app $ynh_node_load_PATH $ynh_npm install
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
-ynh_script_progression --message="Upgrading NGINX web server configuration..." --time --weight=1
+ynh_script_progression --message="Upgrading NGINX web server configuration..." --weight=1
 
 # Create a dedicated NGINX config
 ynh_add_nginx_config
@@ -199,7 +202,7 @@ ynh_use_logrotate --non-append
 #=================================================
 ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
 
-yunohost service add $app --description="Mongo Express to easily access your mongo database" --log="/var/log/$app/$app.log"
+yunohost service add $app --description="Mongo Express to easily administer your Mongo databases" --log="/var/log/$app/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE

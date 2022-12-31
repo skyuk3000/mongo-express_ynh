@@ -3,14 +3,13 @@
     "id": "mongo-express",
     "packaging_format": 1,
     "description": {
-        "en": "Mongo-express and a specific mongo database",
-        "fr": "Mongo database together with Mongo-express server "
+        "en": "Mongo-express admin server and optionally a Mongo database",
+        "fr": "Le serveur d'administration Mongo-express ainsi qu'optionnellement une base Mongo"
     },
     "version": "1.0~ynh2",
     "url": "https://github.com/mongo-express/mongo-express",
     "upstream": {
         "license": "free",
-        "website": "https://github.com/mongo-express/mongo-express",
         "code": "https://github.com/mongo-express/mongo-express"
     },
     "license": "MIT",

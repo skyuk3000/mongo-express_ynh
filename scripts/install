@@ -104,7 +104,7 @@ ynh_app_setting_set --app=$app --key=port --value=$port
 #=================================================
 # INSTALL DEPENDENCIES
 #=================================================
-ynh_script_progression --message="Installing dependencies..." --weight=1
+ynh_script_progression --message="Installing dependencies..." --weight=3
 
 ### `ynh_install_app_dependencies` allows you to add any "apt" dependencies to the package.
 ### Those deb packages will be installed as dependencies of this package.
@@ -121,6 +121,9 @@ ynh_use_nodejs
 if [ $mongo_version != 'None' ]
 then
   ynh_install_mongo --mongo_version=$mongo_version
+else
+  # gives the mongo service name for the rest of installation
+  mongodb_servicename=mongod
 fi
 
 #=================================================
@@ -144,7 +147,7 @@ ynh_system_user_create --username=$app --home_dir="$final_path"
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
-ynh_script_progression --message="Setting up source files..." --weight=1
+ynh_script_progression --message="Setting up source files..." --weight=6
 
 ### `ynh_setup_source` is used to install an app from a zip or tar.gz file,
 ### downloaded from an upstream source, like a git repository.
@@ -297,7 +300,7 @@ ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
 ###		- As well as the section "INTEGRATE SERVICE IN YUNOHOST" in the restore script
 ###		- And the section "INTEGRATE SERVICE IN YUNOHOST" in the upgrade script
 
-yunohost service add $app --description="Mongo Express to easily access your mongo database" --log="/var/log/$app/$app.log"
+yunohost service add $app --description="Mongo Express to easily administer your Mongo databases" --log="/var/log/$app/$app.log"
 
 ### Additional options starting with 3.8:
 ###
