@@ -3,13 +3,13 @@
     "id": "mongo-express",
     "packaging_format": 1,
     "description": {
-        "en": "Mongo-express admin server and optionally a Mongo database",
-        "fr": "Le serveur d'administration Mongo-express ainsi qu'optionnellement une base Mongo"
+        "en": "An admin server for Mongo and optionally a Mongo database",
+        "fr": "Un serveur d'administration pour Mongo ainsi qu'optionnellement une base Mongo"
     },
-    "version": "1.0~ynh2",
+    "version": "1.0~ynh3",
     "url": "https://github.com/mongo-express/mongo-express",
     "upstream": {
-        "license": "free",
+        "license": "MIT",
         "code": "https://github.com/mongo-express/mongo-express"
     },
     "license": "MIT",
@@ -40,11 +40,7 @@
             {
                 "name": "is_public",
                 "type": "boolean",
-                "default": false,
-                "ask": {
-                    "en": "Mongo Express enables you admin access to your mongo server, you shouldn't allow anyone to access it",
-                    "fr": "Il n'est vraiment pas recommandé de donner l'accès a tout le monde, car Mongo-Express vous donne un accès admin à votre serveur Mongo"
-                }
+                "default": false
             },
             {
                 "name": "mongo_version",
