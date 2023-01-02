@@ -37,13 +37,13 @@ You can as well install a Mongo database - version 4, 5 or 6 in your yunohost se
 - Supports replica sets
 
 
-**Version incluse :** 1.0~ynh1
+**Version incluse :** 1.0~ynh3
 
 ## Captures d'écran
 
-![Capture d'écran de Mongo Express](./doc/screenshots/databases-view.png)
-![Capture d'écran de Mongo Express](./doc/screenshots/collection-view.png)
 ![Capture d'écran de Mongo Express](./doc/screenshots/document-edit.png)
+![Capture d'écran de Mongo Express](./doc/screenshots/collection-view.png)
+![Capture d'écran de Mongo Express](./doc/screenshots/databases-view.png)
 
 ## Avertissements / informations importantes
 
@@ -59,7 +59,6 @@ You can as well install a Mongo database - version 4, 5 or 6 in your yunohost se
 
 ## Documentations et ressources
 
-* Site officiel de l'app : <https://github.com/mongo-express/mongo-express>
 * Dépôt de code officiel de l'app : <https://github.com/mongo-express/mongo-express>
 * Documentation YunoHost pour cette app : <https://yunohost.org/app_mongo-express>
 * Signaler un bug : <https://github.com/YunoHost-Apps/mongo-express_ynh/issues>
