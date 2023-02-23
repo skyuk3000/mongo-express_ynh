@@ -55,10 +55,10 @@ app=$YNH_APP_INSTANCE_NAME
 ynh_script_progression --message="Validating installation parameters..." --weight=1
 
 # Check machine architecture (in particular, we don't support ARM and 32bit machines)
-if [ $YNH_ARCH == "i386" ] || [ $YNH_ARCH == "armel" ] || [ $YNH_ARCH == "armhf" ] || [ $YNH_ARCH == "aarch64" ] || [ $YNH_ARCH == "arm64" ]
-then
-	ynh_die --message="Sorry, but this app can only be installed on a x86, 64 bits machine :("
-fi
+#if [ $YNH_ARCH == "i386" ] || [ $YNH_ARCH == "armel" ] || [ $YNH_ARCH == "armhf" ] || [ $YNH_ARCH == "aarch64" ] || [ $YNH_ARCH == "arm64" ]
+#then
+#	ynh_die --message="Sorry, but this app can only be installed on a x86, 64 bits machine :("
+#fi
 
 ### If the app uses NGINX as web server (written in HTML/PHP in most cases), the final path should be "/var/www/$app".
 ### If the app provides an internal web server (or uses another application server such as uWSGI), the final path should be "/opt/yunohost/$app"
